@@ -3,6 +3,7 @@ package com.example.myapplication447;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,11 +21,11 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements View.OnClicklistener {
-    EditText etName, etPassword, etEmail, etPhone, etId;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    EditText etName, etPassword, etEmail, etId;
     Button btnCreate, btnFetch;
     RequestQueue requestQueue;
-    private static final String URL1 = "http://192.168.1.7/androidd/save.php"
+    private static final String URL1 = "http://192.168.20.29/android/save.php";
 
     @Override
 
@@ -47,11 +48,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickliste
         etName = findViewById(R.id.etName);
         etPassword = findViewById(R.id.etPassword);
         etEmail = findViewById(R.id.etEmail);
-        etPhone = findViewById(R.id.etPhone);
         etId = findViewById(R.id.etId);
         //buttons
         btnCreate = findViewById(R.id.btnCreate);
-        btnFetch = findViewById(R.id.btnFrench);
+        btnFetch = findViewById(R.id.btnFetch);
     }
 
     @Override
@@ -64,27 +64,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickliste
             String name = etName.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
-            String phone = etPhone.getText().toString().trim();
 
-            createuser(name,email,password,phone);
+            createuser(name,email,password);
 
 
-        } else if (id == R.id.btnFrench) {
+        } else if (id == R.id.btnFetch) {
+            Intent intent = new Intent(this, MainActivity2.class);
+            intent.putExtra("id", etId.getText().toString().trim());
+            startActivity(intent);
 
         }
 
 
     }
 
-    private void createuser(final String name,final String email,final String password,final String phone) {
+    private void createuser(final String name,final String email,final String password) {
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
                 URL1,
+
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "CORRECTO", Toast.LENGTH_LONG).show();
                     }
 
                 },
@@ -102,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickliste
                 params.put("name",name);
                 params.put("email",email);
                 params.put("password",password);
-                params.put("phone",phone);
                 return params;
             }
         };

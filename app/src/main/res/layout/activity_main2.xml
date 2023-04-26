@@ -1,80 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity2">
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="30dp" />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Email"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="106dp" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="185dp" />
-
-    <EditText
-        android:id="@+id/etPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="phone"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="262dp" />
-
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="404dp"
-        android:layout_height="66dp"
-        android:text="edit"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="349dp" />
-
     <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="144dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="416dp">
-
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="delete user" />
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/etId"
-            android:layout_width="11dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
+            android:hint="Id"
             android:inputType="textPersonName"
-            android:text="Id" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/baseline_delete_24"
+            android:text="ELIMINAR"
+            android:textSize="20sp" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="391dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EDITAR"
+            android:drawableLeft="@drawable/baseline_edit_24"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>
